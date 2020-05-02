@@ -1,2 +1,2 @@
-# sudoku-rbt
-sudoku solver using recursive backtracking
+# Sudoku RBT
+Sudoku solver using recursive backtracking. Implemented using C++.
