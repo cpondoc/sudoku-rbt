@@ -11,20 +11,31 @@ class Board {
     public:
 
         // Constructor 
-        Board(int inputBoard[9][9]) {
+        Board() {
+
+            cout << "This program allows the user to input a sudoku board and solves it." << endl;
+            cout << "Begin enter in each row, with each number separated by a space. Represent blanks as zeroes.\n" << endl;
+
             for (int i = 0; i < 9; i++)
             {
+                cout << "Row " << i + 1 << " : ";
+                int n;
                 for (int j = 0; j < 9; j++)
                 {
-                    board[i][j] = inputBoard[i][j];
+                    cin >> n;
+                    board[i][j] = n;
                 }
             }
+
+            cout << endl;
+
+            cout << "Here is the Sudoku Grid: \n" << endl;
+
             printValues();
         }
 
         // Printing the grid
         void printValues() {
-            cout << "Here is the Sudoku Grid: \n" << endl;
 
             for (int i = 0; i < 9; i++)
             {
@@ -91,29 +102,20 @@ class Board {
                     }
                 }
             }
+
+            cout << "Here is a solution to the board: \n" << endl;
             printValues();
         }
 };
 
-/* Creates board, solves, prints out */
+/* Creates and solves board */
 int main() {
     
-    // 2D Array for board
-    int board[9][9] = 
-    {{5, 3, 0, 0, 7, 0, 0, 0, 0}, 
-    {6, 0, 0, 1, 9, 5, 0, 0, 0}, 
-    {0, 9, 8, 0, 0, 0, 0, 6, 0}, 
-    {8, 0, 0, 0, 6, 0, 0, 0, 3}, 
-    {4, 0, 0, 8, 0, 3, 0, 0, 1}, 
-    {7, 0, 0, 0, 2, 0, 0, 0, 6}, 
-    {0, 6, 0, 0, 0, 0, 2, 8, 0}, 
-    {0, 0, 0, 4, 1, 9, 0, 0, 5}, 
-    {0, 0, 0, 0, 8, 0, 0, 0, 0}};
-
     //Create board object
-    Board bobo = Board(board);
+    Board bobo = Board();
 
+    // Solving the board
     bobo.solveBoard();
-    bobo.solveBoard();
+
     return 0;
 }
